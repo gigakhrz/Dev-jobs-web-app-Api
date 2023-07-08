@@ -3,7 +3,11 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import connect from "./DataBase/mongo.js";
 import dotenv from "dotenv";
-import { getAllJob, postJobs } from "./controllers/devJobs-controller.js";
+import {
+  getAllJob,
+  getJobsBySizeAndPage,
+  postJobs,
+} from "./controllers/devJobs-controller.js";
 
 dotenv.config();
 
@@ -20,6 +24,8 @@ app.get("/", (req, res) => {
 app.get("/getAll", getAllJob);
 
 app.post("/postJobs", postJobs);
+
+app.get("/jobs/:size/:page", getJobsBySizeAndPage);
 
 app.listen(3001, () => {
   console.log("server is running on port 3001");

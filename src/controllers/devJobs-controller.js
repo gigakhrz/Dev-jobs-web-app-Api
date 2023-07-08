@@ -20,3 +20,21 @@ export const postJobs = async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 };
+
+export const getJobsBySizeAndPage = async (req, res) => {
+  try {
+    const size = parseInt(req.params.size);
+    const page = parseInt(req.params.page);
+
+    // Calculate the number of items to retrieve
+    const limit = size * page;
+
+    // Fetch the jobs up to the calculated limit
+    const jobs = await DevJobs.find().limit(limit);
+
+    res.status(200).json(jobs);
+  } catch (error) {
+    console.log("Error retrieving jobs:", error);
+    res.status(500).json({ error: "An error occurred" });
+  }
+};
