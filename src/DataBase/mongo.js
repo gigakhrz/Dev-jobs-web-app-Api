@@ -6,7 +6,7 @@ const connect = async () => {
   try {
     mongoose.connect(url);
   } catch (error) {
-    console.log(error);
+    console.log("serveri ar eshveba");
   }
 };
 
