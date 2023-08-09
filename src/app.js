@@ -23,10 +23,12 @@ app.get("/", (req, res) => {
 
 app.get("/getAll", getAllJob);
 
+app.post("/postjob");
+
 app.post("/postJobs", postJobs);
 
 app.get("/jobs/:size/:page", getJobsBySizeAndPage);
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("server is running on port 3001");
 });
