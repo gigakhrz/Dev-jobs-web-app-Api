@@ -1,5 +1,7 @@
 import { Schema, model } from "mongoose";
 
+// types
+
 const devJobsSchema = new Schema({
   id: {
     type: Schema.Types.Number,
